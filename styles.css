@@ -1,0 +1,157 @@
+/* Regra de import da font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+
+/* CSS Reset */
+*, :root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* a medida das caixas será contada de ponta-a-ponta e não só o que tem dentro do conteúdo */
+    font-family: 'Inter', sans-serif;
+    /* Estilos avançados para otimizar a fonte */
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* É uma boa prática não mexer muito no body */
+body {
+    background-color: #0F172A;   
+}
+
+main {
+    padding: 20px;
+    max-width: 640px;
+    margin: 0 auto 64px; /*centraliza o conteúdo*/
+}
+
+header {
+    margin-top: 64px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #334155;
+}
+
+header h1 {
+    font-size: 32px;
+    color: #f1f5f9;
+    margin-bottom: 8px;
+    margin-top: 24px;
+}
+
+
+
+header h2 {
+    color: #f1f5f9;
+    font-size: 18px;
+}
+
+/* Propriedade nova! */
+#quiz {
+    counter-reset: quiz-item;
+}
+
+
+.quiz-item {
+    margin-top: 24px;
+    border: 1px solid #475569;
+    border-radius: 6px;
+
+    overflow: hidden; /* esconde o transbordamento dos filhos */
+}
+
+.quiz-item h3 {
+    padding: 16px 20px;
+    color: #e2e8f0;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    
+
+    background-color: #1e293b;
+}
+
+
+.quiz-item h3:before {
+    counter-increment: quiz-item;
+    content: counter(quiz-item);
+
+    background-color: #475569;
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+    border-radius: 50%;
+
+    flex-shrink: 0; /* Não encolha os elementos! */
+    
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quiz-item dl {
+    padding: 20px 24px;
+    
+    /* Espaçamento entre os ítens da lista */
+    display: grid; /* Necessário para ativar o gap */
+    gap: 8px; 
+}
+
+.quiz-item dl dt {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0;
+
+
+    /* Para alinhar os inputs */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: #e2e8f0;
+}
+
+/* Manipulando as bolinhas do input */
+input {
+    all: unset; /* todas as propriedades que já existem nos navegadores são desativadas */
+    border: 1px solid #94a3b8;
+    width: 16px;
+    height: 16px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Check nos inputs */
+input:checked:before { /* pseudo-selector*/
+    border: 1px solid greenyellow;
+    content: ""; /* content vazio */
+    width: 10px;
+    height: 10px;
+    
+    background-color: greenyellow;
+    border-radius: 50%;
+}
+
+
+/* Acertos no final da tela fixos. */
+#acertos {
+    text-align: center;
+    background-color: greenyellow;
+    
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    
+    width: 100%;
+    padding: 12px;
+}
+
